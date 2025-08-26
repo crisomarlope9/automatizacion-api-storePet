@@ -60,4 +60,18 @@ public class StoreOrdenStep {
                 .extract().response();
 
     }
+
+    public void validarOrden(String body) {
+        Assert.assertEquals("No tiene estado placed",
+                body,
+                response.jsonPath().getString("status"));
+
+
+    }
+
+    public void validarOrdenId(String id) {
+        Assert.assertEquals("No coincide con el id",
+                id,
+                response.jsonPath().getString("id"));
+    }
 }

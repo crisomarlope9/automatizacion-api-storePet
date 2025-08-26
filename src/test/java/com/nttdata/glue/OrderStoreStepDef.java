@@ -2,6 +2,7 @@ package com.nttdata.glue;
 
 import com.nttdata.steps.StoreOrdenStep;
 import io.cucumber.java.PendingException;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -38,5 +39,18 @@ public class OrderStoreStepDef {
     public void validoElCodigoDeRespuestaSeaIgual(String arg0) {
         // Write code here that turns the phrase above into concrete actions
         storeOrdenStep.validarCodeStatus(arg0);
+    }
+
+    @And("estado de la orden sea {string}")
+    public void estadoDeLaOrdenSea(String status) {
+
+        storeOrdenStep.validarOrden(status);
+    }
+
+
+
+    @And("valido el {string} de la orden")
+    public void validoElDeLaOrden(String id) {
+        storeOrdenStep.validarOrdenId(id);
     }
 }
